@@ -1,0 +1,18 @@
+name = raw_input("Enter file:")
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open('C:\Users\chen-wei\Desktop\Python\Course2_4\\'+name)
+counts={}
+for line in handle:
+    if line.startswith("From:"):
+        line= line.strip()
+        x=line.find("@")
+        domain=line[x+1:]
+        counts[domain]=counts.get(domain,0)+1
+print counts
+
+
+
+#，記錄郵件發送者的功能變數名稱，而不是郵件發送者的郵寄地址。在程式的末尾，輸出字典的內容。
+#Enter a file name: mbox-short.txt
+#{'media.berkeley.edu': 4, 'uct.ac.za': 6, 'umich.edu': 7,
+#'gmail.com': 1, 'caret.cam.ac.uk': 1, 'iupui.edu': 8}
